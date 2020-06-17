@@ -116,35 +116,54 @@ void instagram_menu()
     if(directory_exists("/usr/local/bin/instagram-scraper") == 1) {
         //Ok so instagram-scraper is installed now we need to run it.
         //First ask whether to run in ghost mode or not
-        printf("-----------------------------------------------------------\n");
-        printf("-----------------------------------------------------------\n");
-        printf("------------------CHOOSE THE MENU OPTION-------------------\n\n\n\n");
-        printf("1.GHOST MODE\n");
-        printf("2.USERNAME SEARCH\n");
-        printf("3.PREVIOUS MENU\n");
-        printf("4.EXIT\n\n\n\n");
+        //Before that though, we need to ask whether the user knows the username of the target or not 
 
-        int instagram_option = 5;
-        scanf("%d", &instagram_option);
+        char instagram_username[50];
 
-        switch (instagram_option)
-        {
-        case 1:
-            printf("INSTAGRAM MENU\n");
-            break;
-        case 2:
-            printf("FACEBOOK MENU\n");
-            break;
-        case 3:
-            printf("TWITTER MENU\n");
-            break;
-        case 4:
-            exit_gracefully();
-            break;
-        default:
-            printf("Choose the right option please\n");
-            break;
+        printf("/Do you know the instagram username of the target? Enter Y or N :   ");
+        char insta_profile_response;
+        scanf(" %c", &insta_profile_response);
+        if(insta_profile_response == 'Y') {
+            //username_known, now ask for the username here
+            printf("Enter the username:   ");
+            scanf(" %s", &instagram_username);
+            char* params_insta_one[50] = {"/usr/local/bin/instagram-scraper", instagram_username, "-d", "/home/",NULL};
+            execute_function( params_insta_one ,"/usr/local/bin/instagram-scraper");
         }
+        else if(insta_profile_response == 'N') {
+            //searching the username on instagram is required
+        }
+
+        // printf("-----------------------------------------------------------\n");
+        // printf("-----------------------------------------------------------\n");
+        // printf("------------------CHOOSE THE MENU OPTION-------------------\n\n\n\n");
+        // printf("1.GHOST MODE\n");
+        // printf("2.USERNAME SEARCH\n");
+        // printf("3.PREVIOUS MENU\n");
+        // printf("4.EXIT\n\n\n\n");
+
+        // int instagram_option = 5;
+        // scanf("%d", &instagram_option);
+
+        // switch (instagram_option)
+        // {
+        // case 1:
+        //     //Ghost Mode i.e no username provided
+
+        //     break;
+        // case 2:
+        //     printf("FACEBOOK MENU\n");
+        //     break;
+        // case 3:
+        //     printf("TWITTER MENU\n");
+        //     break;
+        // case 4:
+        //     exit_gracefully();
+        //     break;
+        // default:
+        //     printf("Choose the right option please\n");
+        //     break;
+        // }
     }
     else {
         //I need to install instagram-scraper first
