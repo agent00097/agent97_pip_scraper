@@ -145,6 +145,7 @@ void instagram_menu()
     }
     else {
         //I need to install instagram-scraper first
+
     }
 }
 
@@ -153,7 +154,7 @@ int directory_exists(char *name) {
     int err = stat(name, &s);
     if(err == -1) {
         if(ENOENT == errno) {
-            //Directory doesnt exist prompt me to use the install tor command
+            //Directory doesnt exist
             return -1;
         }
         else {
@@ -162,6 +163,50 @@ int directory_exists(char *name) {
         }
     }
     else {
+        //Directory Exists
         return 1;
+    }
+}
+
+void install_all_dependancies() {
+    
+}
+
+void run_system_commands_redir(char **path, char *filename, char *path_copy) {
+    int rc = fork();
+    if (rc < 0) {
+        write(STDERR_FILENO, error_message, strlen(error_message));
+    }
+    else if (rc == 0) {
+        close(STDOUT_FILENO);
+        open(filename, O_CREAT | O_WRONGLY | O_TRUNC, S_IRWXU);
+        if(execv(path_copy, path)) {
+            write(STDERR_FILENO, error_message, strlen(error_message));
+        }
+    }
+    else {
+        int rc_wait = wait(NULL);
+    }
+}
+
+void execute_function(char **path, char *path_copy)
+{
+    int child;
+    child = fork();
+    if (child < 0)
+    {
+        write(STDERR_FILENO, error_message, strlen(error_message));
+    }
+    else if (child == 0)
+    {
+        if (execv(path_copy, path))
+        {
+            write(STDERR_FILENO, error_message, strlen(error_message));
+        }
+        exit(1);
+    }
+    else
+    {
+        int rc_wait = wait(NULL);
     }
 }
