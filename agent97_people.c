@@ -5,6 +5,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <errno.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <fcntl.h>
 #include "main_header.h"
 
 int main(int argc, char *argv)
@@ -145,7 +148,8 @@ void instagram_menu()
     }
     else {
         //I need to install instagram-scraper first
-
+        char* i_scraper_pip[50] = {"/usr/bin/pip3", "install", "instagram-scraper", NULL};
+        execute_function(i_scraper_pip, "/usr/bin/pip3");
     }
 }
 
@@ -179,7 +183,7 @@ void run_system_commands_redir(char **path, char *filename, char *path_copy) {
     }
     else if (rc == 0) {
         close(STDOUT_FILENO);
-        open(filename, O_CREAT | O_WRONGLY | O_TRUNC, S_IRWXU);
+        open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU);
         if(execv(path_copy, path)) {
             write(STDERR_FILENO, error_message, strlen(error_message));
         }
