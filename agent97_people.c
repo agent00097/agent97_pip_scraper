@@ -120,7 +120,7 @@ void instagram_menu()
         printf("-----------------------------------------------------------\n");
         printf("------------------CHOOSE THE MENU OPTION-------------------\n\n\n\n");
         printf("1.GHOST MODE\n");
-        printf("2.FACEBOOK SEARCH\n");
+        printf("2.USERNAME SEARCH\n");
         printf("3.PREVIOUS MENU\n");
         printf("4.EXIT\n\n\n\n");
 
