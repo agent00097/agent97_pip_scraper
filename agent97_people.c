@@ -22,12 +22,18 @@ int main(int argc, char *argv)
     }
     else
     {
-        printf("-----------------------------------------------------------\n");
-        printf("-----------------------------------------------------------\n");
-        printf("---------------------WELCOME AGENT97-----------------------\n");
-        printf("----------------YOU KNOW WHAT TO DO NEXT-------------------\n");
-        printf("-----------------------------------------------------------\n");
-        printf("-----------------------------------------------------------\n\n\n\n");
+        printf("\n         o                                               o         o__ __o     _\\__o__ __o/ \n");
+        printf("        <|>                                             <|>       /v     v\\         v    |/ \n");
+        printf("        / \\                                             < >      />       <\\            /   \n");
+        printf("      o/   \\o         o__ __o/    o__  __o   \\o__ __o    |       \\o        |          o/    \n");
+        printf("     <|__ __|>       /v     |    /v      |>   |     |>   o__/_   \\|>_  _\\__o         /v     \tVersion : 1.0\n");
+        printf("     /       \\      />     / \\  />      //   / \\   / \\   |                 |        />      \tAuthor : Agent97 \n");
+        printf("   o/         \\o    \\      \\o/  \\o    o/     \\o/   \\o/   |       \\         /      o/        \n");
+        printf("  /v           v\\    o      |    v\\  /v __o   |     |    o        o       o      /v         \n");
+        printf(" />             <\\   <\\__  < >    <\\/> __/>  / \\   / \\   <\\__     <\\__ __/>     />          \n");
+        printf("                            |                                                               \n");
+        printf("                    o__     o                                                               \n");
+        printf("                    <\\__ __/>                                                               \n");
         while (1)
         {
             //This is where the main menu option will be
@@ -79,11 +85,13 @@ void people_hack_menu()
     {
         printf("-----------------------------------------------------------\n");
         printf("-----------------------------------------------------------\n");
-        printf("------------------CHOOSE THE MENU OPTION-------------------\n\n\n\n");
+        printf("------------------CHOOSE THE MENU OPTION-------------------\n");
         printf("1.INSTAGRAM SEARCH\n");
         printf("2.FACEBOOK SEARCH\n");
         printf("3.TWITTER SEARCH\n");
         printf("4.EXIT\n");
+        printf("-----------------------------------------------------------\n");
+        printf("-----------------------------------------------------------\n");
 
         int choice2 = 5;
         scanf("%d", &choice2);
@@ -132,6 +140,7 @@ void instagram_menu()
         }
         else if(insta_profile_response == 'N') {
             //searching the username on instagram is required
+
         }
 
         // printf("-----------------------------------------------------------\n");
